@@ -1,0 +1,14 @@
+<div class="row">
+  <%@posts.each do |post| %>
+    <div class="span3 offset1 post">
+    <article>
+      <dl>
+        <dt>"<%=post['title']%>":</dt>
+        <dd>Published by <%=post['author']%> on <%=post['published']%></dd>
+       <dd><em>Excerpt:</em> <%=post['content'].slice(0, 30) + "..." %></dd>
+      </dl>
+      <div class='link'><a href='/post/<%=post['id']%>'>Read the full entry</a></div>
+    </article>
+  </div>
+<% end %>
+</div>

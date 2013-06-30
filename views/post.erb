@@ -1,0 +1,15 @@
+<section>
+  <article class="post">
+    <dl >
+      <dt><%=@post['title']%></dt>
+      <dt>
+        <dd>Posted by <%=@post['author']%> on <%=@post['published']%></dd>
+      <dd><%=@post['content']%></dd>
+      </tr>
+    </dl>
+    <div class='link'><a href='/delete/<%=@post['id']%>'>delete</a></div>
+    <div class='link'><a href='/edit/<%=@post['id']%>'>edit</a></div>
+    <div class='clear_both'></div>
+
+  </article>
+</section>
