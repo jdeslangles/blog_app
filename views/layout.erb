@@ -1,31 +1,31 @@
 <!doctype html>
 <html lang='en'>
-<head>
-  <meta charset='utf-8'>
-  <link rel='stylesheet' href='/css/bootstrap.css'>
-  <link rel='stylesheet' href='/css/main.css'>
-  <title>bLoG</title>
-</head>
-<body>
-  <section>
-    <div class="container">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <a class="brand" href="/">bLoG</a>
-          <ul class="nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/new_post">New entry</a></li>
-            <li><a href="/admin_login">Login</a></li>
-          </ul>
+  <head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='/css/bootstrap.css'>
+    <link rel='stylesheet' href='/css/main.css'>
+    <title>bLoG</title>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <a class="brand" href="/">bLoG</a>
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/new_post">New entry</a></li>
+              <li><a href="/admin_login">Login</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  <%= yield %>
-</section>
-</body>
-<footer>
-  <p>You've visited this page
-<%= session["pageviews"] %>
- times.</p>
-</footer>
+    </section>
+      <div class="row">
+        <%= yield %>
+        <div class="post span2">
+          <p>You've visited this page <%= session["pageviews"] %> times.</p>
+        </div>
+      </div>
+  </body>
 </html>

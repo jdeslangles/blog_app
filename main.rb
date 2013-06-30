@@ -20,7 +20,7 @@ end
 get '/' do
   session["pageviews"] += 1
   puts session.inspect
-  sql = "select * from blogposts order by published asc"
+  sql = "select * from blogposts order by published desc"
   @posts = run_sql(sql)
   erb :home
 end
