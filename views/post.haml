@@ -1,0 +1,20 @@
+.span5 .offset1
+  %article .post
+    %dl
+      %dt
+        = @post['title']
+      %dd Posted by
+        = @post['author']
+        on
+        = @post['published']
+      %br
+      %dd
+        = @post['content']
+      .clear_both
+      %br
+        %button .btn .link
+          %a {href: "/delete/#{@post['id']}"
+            delete
+        %button .btn .link
+          %a {href: "/edit/#{@post['id']}"
+            edit

@@ -1,0 +1,13 @@
+.span5 .offset1
+  .post
+    %form{action:"/publish", method:"post"}
+      %dl
+        %dt Title:
+        %dd input{type:"text", name:"title", autofocus}
+      %dl
+        %dt Author:
+        %dd input{type:"text", name:"author"}
+      %dl
+        %dt Content:
+        %dd input{type:"text", name:"content"}
+      %button .btn Publish

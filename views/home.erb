@@ -1,14 +1,16 @@
 <div class= "span5 offset1">
   <%@posts.each do |post| %>
     <div class=" post">
-    <article>
-      <dl>
-        <dt>"<%=post['title']%>":</dt>
-        <dd>Published by <%=post['author']%> on <%=post['published']%></dd><br>
-       <dd><em>Excerpt:</em> "<%=post['content'].slice(0, 100) + "..." %>"</dd><br>
-        <div class='link'><a href='/post/<%=post['id']%>'>Read the full entry</a></div>
-      </dl>
-    </article>
-  </div>
-<% end %>
+      <article>
+        <dl>
+          <dt>"<%=post['title']%>":</dt>
+          <dd>Published by <%=post['author']%> on <%=post['published']%></dd><br>
+         <dd><em>Excerpt:</em> "<%=post['content'].slice(0, 100) + "..." %>"</dd><br>
+          <div class='link'><a href='/post/<%=post['id']%>'>Read the full entry</a></div>
+        </dl>
+      </article>
+    </div>
+  <% end %>
 </div>
+
+

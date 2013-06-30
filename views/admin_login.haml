@@ -1,0 +1,9 @@
+.span5 .offset1
+  .post
+    %form{action:"/admin_verif", method:"post"}
+      %dl
+        %dt Login:
+        %dd input{type:"text", name:"login", autofocus}
+        %dt Password:
+        %dd input{type:"text", name:"password"}
+        %button .btn Sign in

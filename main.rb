@@ -29,7 +29,11 @@ end
 # Create new post
 
 get '/new_post' do
-  erb :new_post
+  if session[:admin] == true
+    erb :new_post
+  else
+    redirect to('/admin_login')
+  end
 end
 
 post '/publish' do
@@ -55,8 +59,12 @@ end
 #Edit selected post
 
 get '/edit/:id' do
-  sql = "select * from blogposts where id = #{params[:id]}"
-  @post = run_sql(sql).first
+  if session[:admin] == true
+    sql = "select * from blogposts where id = #{params[:id]}"
+    @post = run_sql(sql).first
+  else
+    redirect to("/admin_login")
+  end
   erb :edit
 end
 
@@ -74,9 +82,13 @@ end
 #Delete selected post
 
 get '/delete/:id' do
-  sql = "delete from blogposts where id = #{params[:id]}"
-  run_sql(sql)
-  redirect to('/')
+  if session[:admin] == true
+    sql = "delete from blogposts where id = #{params[:id]}"
+    run_sql(sql)
+    redirect to('/')
+  else
+    redirect to('/admin_login')
+  end
 end
 
 
@@ -86,14 +98,32 @@ get '/admin_login' do
   # unless session[:admin] == true
   #  redirect to('/')
   # end
+  @login = params[:login]
+  @password = params[:password]
   erb :admin_login
 end
 
 post '/admin_verif' do
-  # if params['login'].to_s == "jcfdb" && params['password'].to_s == "password"
-  #   session[:admin] = true
-  #   redirect to('/admin')
-  #end
+  if params[:login].to_s == "jcfdb" && params[:password].to_s == "password"
+    session[:admin] = true
+    redirect to('/')
+  else
+    session[:admin] = false
+    redirect to('/admin_login')
+  end
+end
+
+get '/admin_logout' do
+  session[:admin] = false
+  redirect to('/')
+end
+
+def logged_in
+  if session[:admin] == true
+    "You are logged in!"
+  else
+    "Please log in to create / edit / delete content."
+  end
 end
 
 # Method to access/close DB
@@ -107,6 +137,7 @@ def run_sql(sql)
   end
   result
 end
+
 
 
 

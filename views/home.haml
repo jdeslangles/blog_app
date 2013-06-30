@@ -1,0 +1,18 @@
+.span5 .offset1
+= @posts.each do |post|
+    .post
+    %article
+    %dl
+        %dt
+        = post['title']
+        %dd Published by
+        = post['author']
+        on
+        = post['published']
+        %br
+        %dd %em Excerpt:
+        = post['content'].slice(0, 100) + "..."
+        %br
+        .link
+        %a{href:"/post/#{post['id']}"}
+            Read the full entry

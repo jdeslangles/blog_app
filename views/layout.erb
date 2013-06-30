@@ -16,6 +16,11 @@
               <li><a href="/">Home</a></li>
               <li><a href="/new_post">New entry</a></li>
               <li><a href="/admin_login">Login</a></li>
+              <li>
+                <form action="/admin_logout">
+                  <input class="btn" type="submit" value="Logout">
+                </form>
+              </li>
             </ul>
           </div>
         </div>
@@ -23,8 +28,9 @@
     </section>
       <div class="row">
         <%= yield %>
-        <div class="post span2">
-          <p>You've visited this page <%= session["pageviews"] %> times.</p>
+        <div class="navright span2">
+          <p>You've visited this page <%= session["pageviews"] %> times.</p><br><br><br><br><br><br>
+          <p><%= logged_in %></p>
         </div>
       </div>
   </body>

@@ -1,0 +1,25 @@
+!!! 5
+%html
+  %head
+    %title bLoG
+    %link{:href => "/css/bootstrap.css", :rel => "stylesheet"}/
+    %link{:href => "/css/main.css", :rel => "stylesheet"}/
+
+  %body
+    %section
+      .container
+        .navbar
+          .navbar-inner
+            %ul
+            .nav
+              %li
+                %a{href:"/"}Home
+                %a{href:"/new_post"}New entry
+                %a{href:"/admin_login"}Login
+
+
+      .row
+      = yield
+        .post
+        .span2
+          %p You've visited this page times
